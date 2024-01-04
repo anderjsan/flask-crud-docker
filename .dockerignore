@@ -1,0 +1,11 @@
+.dockerignore
+Dockerfile
+docker-compose.yml
+__pycache__
+.vscode
+crude_app/
+codigo do cara.txt
+test_app.py
+test_cases.txt
+flask_crud_app.log
+usuarios.txt
