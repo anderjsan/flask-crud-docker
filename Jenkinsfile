@@ -16,8 +16,9 @@ pipeline{
 
         stage('Build') {
             steps {
+                echo 'Iniciando o Build'
                 script {
-                    sh 'docker-compose build -d'
+                    dockerapp = docker.build("flask_crud_app:0.0.1", '-f ./Dockerfile ./app')
                 }
             }
         }
