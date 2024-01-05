@@ -1,11 +1,13 @@
 pipeline {
     agent any
     stages {
-        stage('Setup Docker') {
+        stage('Build') {
             steps {
-                echo "Installing docker-compose"
-                    sh 'curl -fsSL https://get.docker.com -o get-docker.sh && chmod 777 get-docker.sh'
-                    sh 'docker ps'
+                echo "Building.."
+                sh '''
+                echo "doing test stuff.."
+                '''    
+                    
             }
         }
         stage('Test') {
@@ -18,7 +20,7 @@ pipeline {
         }
         stage('Deliver') {
             steps {
-                echo 'Deliver....'
+                echo 'Delivering....'
                 sh '''
                 echo "doing delivery stuff.."
                 '''
