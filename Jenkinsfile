@@ -14,6 +14,7 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 pwd
+                docker
                 '''
             }
         }
