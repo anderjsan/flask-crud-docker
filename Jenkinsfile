@@ -7,5 +7,11 @@ pipeline{
                 echo 'iniciando a pipeline'
             }
         }
+        stage ('Limpeza'){
+            steps {
+                echo 'Limpando a Pasta Workspace. Vamos ver se funciona'
+                deleteDir()
+            }
+        }
     }
 }
