@@ -1,29 +1,21 @@
 pipeline {
     agent any
+    
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing test stuff.."
-                '''
-                dockerapp = docker.build("xpto:0.0.1", '-d ./Dockerfile /app')    
-            }
-        }
-        stage('Test') {
-            steps {
-                echo "Testing.."
-                sh '''
-                echo "doing test stuff.."
-                '''
-            }
-        }
-        stage('Deliver') {
-            steps {
-                echo 'Delivering....'
-                sh '''
-                echo "doing delivery stuff.."
-                '''
+                script {
+                    // Define o nome da imagem Docker
+                    def dockerImage = 'flask_crud_app:0.0.1'
+                    
+                    // Constrói a imagem Docker usando o Dockerfile no diretório atual
+                    docker.build dockerImage, '-f Dockerfile .'
+                    
+                    // Opcional: Faça o push da imagem para um registry (como Docker Hub)
+                    docker.withRegistry('https://registry_url', 'registry_credentials') {
+                        dockerImage.push()
+                    }
+                }
             }
         }
     }
