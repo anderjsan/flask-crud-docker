@@ -13,8 +13,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
-                pwd
-                docker
+                ls
                 '''
             }
         }
