@@ -1,32 +1,35 @@
-pipeline{
-    agent any
-
+pipeline {
+    agent { 
+        node {
+            label 'docker-agent-python'
+            }
+      }
+    triggers {
+        pollSCM '*/1 * * * *'
+    }
     stages {
-        stage ('Inicial'){
-            steps {
-                echo 'Iniciando a pipeline'
-            }
-        }
-        stage ('Limpeza'){
-            steps {
-                echo 'Limpando a Pasta Workspace. Vamos ver se funciona'
-                deleteDir()
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Iniciando o Build'
-                script {
-                    dockerapp = docker.build("flask_crud_app:0.0.1", '-f ./Dockerfile ./app')
-                }
+                echo "Building.."
+                sh '''
+                echo "doing build stuff.."
+                '''
             }
         }
-        
-
-        stage ('Final'){
+        stage('Test') {
             steps {
-                echo 'Fechando a pipeline'
+                echo "Testing.."
+                sh '''
+                echo "doing test stuff.."
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
             }
         }
     }
