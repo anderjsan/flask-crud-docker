@@ -22,7 +22,7 @@ pipeline{
                     
                     // Constrói a imagem Docker usando o Dockerfile no diretório atual
                     sh "echo ${dockerTag} ."
-                    ls
+                    sh "ls"
                 }
             }
         }
