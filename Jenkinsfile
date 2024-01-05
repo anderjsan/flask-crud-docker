@@ -17,9 +17,6 @@ pipeline{
         stage('Build') {
             steps {
                 script {
-                    def dockerHome = tool 'docker' // assuming you have 'docker' configured in Jenkins as a tool
-                    
-                    withEnv(["PATH+DOCKER=${dockerHome}/bin"]) {
                         sh 'docker-compose build'
                     }
                 }
