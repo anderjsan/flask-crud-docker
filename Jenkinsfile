@@ -14,15 +14,14 @@ pipeline{
             }
         }
 
-        stage ('Build') {
+        stage('Build') {
             steps {
                 script {
-                    // Define a tag para a imagem Docker
-                    def dockerTag = "flask_crud_app:0.0.1"
+                    def dockerHome = tool 'docker' // assuming you have 'docker' configured in Jenkins as a tool
                     
-                    // Constrói a imagem Docker usando o Dockerfile no diretório atual
-                    sh "echo ${dockerTag} ."
-                    sh "ls"
+                    withEnv(["PATH+DOCKER=${dockerHome}/bin"]) {
+                        sh 'docker-compose build'
+                    }
                 }
             }
         }
