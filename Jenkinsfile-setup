@@ -12,9 +12,9 @@ pipeline {
                     docker.build dockerImage, '-f Dockerfile .'
                     
                     // Opcional: Faça o push da imagem para um registry (como Docker Hub)
-                    docker.withRegistry('https://registry_url', 'registry_credentials') {
-                        dockerImage.push()
-                    }
+                    // docker.withRegistry('https://registry_url', 'registry_credentials') {
+                    //     dockerImage.push()
+                    // }
                 }
             }
         }
