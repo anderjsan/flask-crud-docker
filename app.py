@@ -13,13 +13,13 @@ logging.basicConfig(
 app = Flask(__name__)
 
 # RODAR SOMENTE EM TESTE LOCAL
-if environ.get('DB_URL') is None:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+# if environ.get('DB_URL') is None:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
+# else:
+#     app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 
 # BUILD PARA DOCKER
-# app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 
 db = SQLAlchemy(app)
 
@@ -231,5 +231,5 @@ def delete_all_users():
         return make_response(jsonify({"code": 500, "message": "An error occurred while deleting users."}), 500)
 
 # RODAR SOMENTE EM TESTE LOCAL
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000, debug=True)
+# if __name__ == "__main__":
+#     app.run(host='0.0.0.0', port=5000, debug=True)
