@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    stages {
+        stage('Setup Docker') {
+            steps {
+                echo "Installing docker-compose"
+                    sh 'curl -fsSL https://get.docker.com -o get-docker.sh'
+                    sh 'sudo sh get-docker.sh'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing.."
+                sh '''
+                echo "doing test stuff.."
+                '''
+            }
+        }
+        stage('Deliver') {
+            steps {
+                echo 'Deliver....'
+                sh '''
+                echo "doing delivery stuff.."
+                '''
+            }
+        }
+    }
+}
