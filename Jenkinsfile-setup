@@ -6,8 +6,8 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "doing test stuff.."
-                '''    
-                    
+                '''
+                dockerapp = docker.build("xpto:0.0.1", '-d ./Dockerfile /app')    
             }
         }
         stage('Test') {
