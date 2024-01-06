@@ -1,20 +1,29 @@
 pipeline {
     agent any
     
+    environment {
+        DOCKER_IMAGE = 'flask_crud_app:0.0.1'
+    }
+    
     stages {
         stage('Build') {
             steps {
                 script {
-                    // Define o nome da imagem Docker
-                    def dockerImage = 'flask_crud_app:0.0.1'
-                    
-                    // Constrói a imagem Docker usando o Dockerfile no diretório atual
-                    docker.build dockerImage, '-f Dockerfile .'
-                    
-                    // Opcional: Faça o push da imagem para um registry (como Docker Hub)
-                    // docker.withRegistry('https://registry_url', 'registry_credentials') {
-                    //     dockerImage.push()
-                    // }
+                    def dockerImage = docker.build(env.DOCKER_IMAGE)
+                    dockerImage.inside {
+                        // Aqui você colocaria os comandos para construir sua aplicação Flask
+                        // Por exemplo: instalar dependências, compilar, etc.
+                        sh 'echo "Construindo a aplicação Flask..."'
+                    }
+                }
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                script {
+                    // Aqui você poderia adicionar comandos para fazer o push da imagem para um registro Docker, por exemplo.
+                    sh 'echo "Deploy da imagem Docker $DOCKER_IMAGE"'
                 }
             }
         }
