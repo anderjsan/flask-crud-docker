@@ -19,6 +19,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff.."
+                docker --version
                 '''
             }
         }
@@ -27,6 +28,7 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 echo "doing delivery stuff.."
+                python --version
                 '''
             }
         }
