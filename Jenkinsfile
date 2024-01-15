@@ -4,13 +4,16 @@ pipeline {
             label 'docker-agent-python'
             }
     }
+    triggers {
+        pollSCM '* * * * *'
+    }
     stages {
         stage('Build') {
             steps {
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
-                docker-compose build
+                docker-compose --version
                 '''
             }
         }
