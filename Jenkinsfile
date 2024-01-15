@@ -15,9 +15,8 @@ pipeline {
                 echo "doing build stuff.."
                 echo "vamos ver se se do jeito que está funciona?"
                 docker --version
-                docker-compose --version
-                docker-compose build
                 '''
+                docker.version()
             }
         }
         stage('Test') {
