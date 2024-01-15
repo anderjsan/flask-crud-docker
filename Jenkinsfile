@@ -13,6 +13,7 @@ pipeline {
                 echo "Building.."
                 sh '''
                 echo "doing build stuff.."
+                echo "vamos ver se se do jeito que está funciona?"
                 docker-compose --version
                 '''
             }
