@@ -21,7 +21,8 @@ pipeline {
                 // echo "vamos ver se se do jeito que está funciona?"
                 // docker --version
                 // '''
-                docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                echo "${IMAGE_NAME}:${IMAGE_TAG}"
+                //docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
             }
         }
         stage('Test') {
