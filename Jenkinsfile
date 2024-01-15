@@ -16,7 +16,7 @@ pipeline {
                 echo "vamos ver se se do jeito que está funciona?"
                 docker --version
                 '''
-                def imageName = 'seu-repositorio/sua-imagem'
+                def imageName = 'jenkins-101-jenkins-builder'
                 def imageTag = 'latest'
                 docker.build("${imageName}:${imageTag}")
             }
