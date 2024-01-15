@@ -16,7 +16,7 @@ pipeline {
                 echo "vamos ver se se do jeito que está funciona?"
                 docker --version
                 docker-compose --version
-                docker-compose build
+                # docker-compose build
                 '''
             }
         }
