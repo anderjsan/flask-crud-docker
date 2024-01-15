@@ -22,7 +22,9 @@ pipeline {
                 // docker --version
                 // '''
                 echo "${IMAGE_NAME}:${IMAGE_TAG}"
-                //docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                script {
+                    docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
+                }
             }
         }
         stage('Test') {
