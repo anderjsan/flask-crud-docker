@@ -16,7 +16,9 @@ pipeline {
                 echo "vamos ver se se do jeito que está funciona?"
                 docker --version
                 '''
-                docker.version()
+                def imageName = 'seu-repositorio/sua-imagem'
+                def imageTag = 'latest'
+                docker.build("${imageName}:${imageTag}")
             }
         }
         stage('Test') {
