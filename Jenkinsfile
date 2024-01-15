@@ -3,7 +3,7 @@ pipeline {
         node {
             label 'docker-agent-python'
             }
-      }
+    }
     stages {
         stage('Build') {
             steps {
@@ -17,7 +17,7 @@ pipeline {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff..
+                echo "doing test stuff.."
                 '''
             }
         }
