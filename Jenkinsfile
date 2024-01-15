@@ -10,11 +10,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building.."
-                sh '''
-                echo "doing build stuff.."
-                echo "vamos ver se se do jeito que está funciona?"
-                docker --version
+                // echo "Building.."
+                // sh '''
+                // echo "doing build stuff.."
+                // echo "vamos ver se se do jeito que está funciona?"
+                // docker --version
                 '''
                 def imageName = 'jenkins-101-jenkins-builder'
                 def imageTag = 'latest'
