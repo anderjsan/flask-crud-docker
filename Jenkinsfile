@@ -16,6 +16,7 @@ pipeline {
                 docker --version
                 cd myapp
                 ls -l
+                pip install -r requirements.txt
                 '''
             }
         }
