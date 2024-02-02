@@ -14,9 +14,8 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 docker --version
-                cd myapp
                 python3 -m venv py_env
-                ls -l
+                ls -ltra
                 # pip install -r requirements.txt
                 '''
             }
