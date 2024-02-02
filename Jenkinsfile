@@ -7,32 +7,20 @@ pipeline {
     triggers {
         pollSCM '* * * * *'
     }
-    environment {
-        COMPOSE_NAME = 'docker-compose.yml'  // Nome do arquivo docker-compose
-        IMAGE_NAME = 'jenkins-101-jenkins-builder'
-        IMAGE_TAG = 'latest'
-    }
     stages {
         stage('Build') {
             steps {
-                // echo "Building.."
-                // sh '''
-                // echo "doing build stuff.."
-                // echo "vamos ver se se do jeito que está funciona?"
-                // docker --version
-                // '''
-                echo "${IMAGE_NAME}:${IMAGE_TAG}"
-                // script {
-                //     docker.build("${IMAGE_NAME}:${IMAGE_TAG}")
-                // }
+                echo "Building.."
+                sh '''
+                echo "doing build stuff.."
+                '''
             }
         }
         stage('Test') {
             steps {
                 echo "Testing.."
                 sh '''
-                echo "doing test stuff.."
-                docker --version
+                echo "doing test stuff..
                 '''
             }
         }
@@ -41,7 +29,6 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 echo "doing delivery stuff.."
-                python --version
                 '''
             }
         }
