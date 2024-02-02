@@ -14,6 +14,8 @@ pipeline {
                 sh '''
                 echo "doing build stuff.."
                 docker --version
+                cd myapp
+                ls -l
                 '''
             }
         }
