@@ -16,7 +16,8 @@ pipeline {
                 docker --version
                 cd myapp
                 ls -l
-                pip install -r requirements.txt
+                python3 -m venv py_env
+                # pip install -r requirements.txt
                 '''
             }
         }
