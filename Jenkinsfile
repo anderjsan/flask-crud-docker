@@ -22,6 +22,7 @@ pipeline {
                 echo "Testing.."
                 sh '''
                 echo "doing test stuff.."
+                docker-compose --version
                 '''
             }
         }
@@ -30,6 +31,7 @@ pipeline {
                 echo 'Deliver....'
                 sh '''
                 echo "doing delivery stuff.."
+                python3 --version
                 '''
             }
         }
