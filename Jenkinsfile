@@ -17,6 +17,9 @@ pipeline {
                 python3 -m venv py_env
                 source py_env/bin/activate
                 pip install -r requirements.txt
+                #
+                docker build -t anderjsan/flask_crud_app:latest .
+                #
                 '''
             }
         }
