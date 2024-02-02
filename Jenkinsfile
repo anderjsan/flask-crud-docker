@@ -18,7 +18,7 @@ pipeline {
                 source py_env/bin/activate
                 pip install -r requirements.txt
                 #
-                sudo service docker status
+                docker status
                 #docker build -t anderjsan/flask_crud_app:latest .
                 #
                 '''
