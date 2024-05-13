@@ -22,6 +22,7 @@ class CommitUpdater:
             if not f.read(1):
                 last_version = "0.0.0"
             else:
+                f.seek(0)
                 last_version = f.readline().strip()
         
         last_version_parts = last_version.split(".")
