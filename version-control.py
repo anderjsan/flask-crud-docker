@@ -5,8 +5,9 @@ class CommitUpdater:
         self.commit_keywords = {
             "[RELEASE]": 0,
             "[FEATURE]": 1,
-            "[FIX]": 2,
-            "[INIT]": 2  # Assuming [INIT] should increment the FIX term
+            "[INIT]": 1, # Assuming [INIT] should increment the FIX term
+            "[FIX]": 2
+
         }
         self.version_terms = [0,0,0]
         self.last_tag = [0,0,1]
@@ -17,7 +18,11 @@ class CommitUpdater:
     def get_curr_version(self):
         # get the last version
         with open(".version", "r") as f:
-            last_version = f.readline().strip()
+            # check if the file is empty
+            if not f.read(1):
+                last_version = "0.0.0"
+            else:
+                last_version = f.readline().strip()
         
         last_version_parts = last_version.split(".")
         self.last_tag = last_version_parts
@@ -62,7 +67,6 @@ class CommitUpdater:
         elif x.version_terms[2] > 0:
             new_tag[2] = str(int(new_tag[2]) + x.version_terms[2])
 
-
         new_version = ".".join(new_tag)
         with open(".version", "w") as f:
             f.write(new_version)
@@ -74,7 +78,11 @@ class CommitUpdater:
         commit_log = []
         # open version_log and feed an array of commits.
         with open(".version_log", "r") as json_file:
-            commit_logs = json.load(json_file)
+            # if file is empty, create an empty list.
+            if json_file.read() == "":
+                commit_logs = []
+            else: 
+                commit_logs = json.load(json_file)
         
         #prepare a new commit_log to enter into commit_log list.
         if keyword == "[FIX]":
@@ -90,7 +98,7 @@ class CommitUpdater:
             }
         
         #if keyword means FIX, search for the FEATURE or release tag where this fix was belongs to. Add this commit_log into the commit_logs list under FIXES, respecting the parenthood
-        if keyword == "[FIX]":
+        if keyword in ("[FIX]"):
             for commit in reversed(commit_logs):
                 # se os dois primeiros termos da tag são iguais, faça o append do commit_log.
                 # Separando os dois primeiros termos das tags
