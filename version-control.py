@@ -26,7 +26,7 @@ class CommitUpdater:
         
     def set_version_terms(self):
         # capture the last commit.
-        self.commit_message = sp.run(["git", "log", "-1", "--pretty=%B"], capture_output=True, text=True).stdout.strip()
+        self.commit_message = sp.run(["git", "log", "-1", "--pretty=%B"], capture_output=True, text=True, encoding='utf-8').stdout.strip()
         
         # get the commit type
         for keyword, index in self.commit_keywords.items():
@@ -95,7 +95,7 @@ class CommitUpdater:
                 # se os dois primeiros termos da tag são iguais, faça o append do commit_log.
                 # Separando os dois primeiros termos das tags
                 existing_tag_terms = commit["tag"].split(".")[:2]
-                new_tag_terms = tag[:2]
+                new_tag_terms = tag.split(".")[:2]
 
                 # Verificando se os dois primeiros termos são iguais
                 if existing_tag_terms == new_tag_terms:
@@ -121,6 +121,3 @@ x.set_version_terms()
 vers = x.get_curr_version()
 tag = x.set_new_version(vers)
 x.log_verson(tag,x.keyword,x.commit_message)
-# print(vers)
-# print(x.set_new_version(vers))
-x.log_verson
