@@ -65,8 +65,8 @@ class CommitUpdater:
     def log_verson(self, tag, keyword, message):
         commit_log = []
         # open version_log and feed an array of commits.
-        with open(".version_log", "r") as json_file:
-            
+        with open(".version_log", "r", encoding="utf-8") as json_file:
+
             # if file is empty, create an empty list.
             file_content = json_file.read()
             if file_content == "":
@@ -104,7 +104,7 @@ class CommitUpdater:
             commit_logs.append(commit_log)
         
         #save commit_logs into version_log file
-        with open(".version_log", "w") as json_file:
+        with open(".version_log", "w", encoding="utf-8") as json_file:
             json.dump(commit_logs, json_file)
 
         print(commit_logs)
