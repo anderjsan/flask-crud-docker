@@ -40,19 +40,6 @@ class CommitUpdater:
                 self.keyword = keyword
                 break
 
-    def get_new_version(self, tag):
-        parts = tag
-        if self.version_terms[0] > 0:
-            parts[0] = str(int(parts[0]) + self.version_terms[0])
-            parts[1] = '0'
-            parts[2] = '0'
-        elif self.version_terms[1] > 0:
-            parts[1] = str(int(parts[1]) + self.version_terms[1])
-            parts[2] = '0'
-        elif self.version_terms[2] > 0:
-            parts[2] = str(int(parts[2]) + self.version_terms[2])
-        return parts
-    
     def set_new_version(self, tag):
         # aplicar o calculo da nova versão:
         # Increment version
