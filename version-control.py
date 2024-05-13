@@ -66,10 +66,13 @@ class CommitUpdater:
         commit_log = []
         # open version_log and feed an array of commits.
         with open(".version_log", "r") as json_file:
+            
             # if file is empty, create an empty list.
-            if json_file.read() == "":
+            file_content = json_file.read()
+            if file_content == "":
                 commit_logs = []
             else: 
+                json_file.seek(0)
                 commit_logs = json.load(json_file)
         
         #prepare a new commit_log to enter into commit_log list.
