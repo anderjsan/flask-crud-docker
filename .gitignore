@@ -1,5 +1,7 @@
 __pycache__
 .vscode
+.version
+.gitignore
 crude_app
 codigo do cara.txt
 flask_crud_app.log
