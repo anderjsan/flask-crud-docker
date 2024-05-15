@@ -13,10 +13,10 @@ logging.basicConfig(
 app = Flask(__name__)
 
 # RODAR SOMENTE EM TESTE LOCAL
-# if environ.get('DB_URL') is None:
-#     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
-# else:
-#     app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
+if environ.get('DB_URL') is None:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
 
 # BUILD PARA DOCKER
 app.config['SQLALCHEMY_DATABASE_URI'] = environ.get('DB_URL')
