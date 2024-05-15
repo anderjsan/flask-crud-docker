@@ -11,7 +11,6 @@ logging.basicConfig(
 )
 
 app = Flask(__name__)
-
 # RODAR SOMENTE EM TESTE LOCAL
 if environ.get('DB_URL') is None:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost:5432/postgres'
