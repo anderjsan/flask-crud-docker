@@ -13,7 +13,7 @@ services:
       - ./postgre_volume:/var/lib/postgresql/data
   flask_crud_app:
     container_name: flask_crud_app
-    image: flask_crud_app:0.0.1
+    image: flask_crud_app:${TAG}
     build: .
     ports:
       - "4000:4000"
