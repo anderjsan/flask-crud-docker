@@ -61,7 +61,8 @@ pipeline {
         stage('Stop Current Containers'){
             steps {
                 script {
-                    echo 'docker-compose down'
+
+                    echo 'Stopping Current Containers'
                     withEnv(["TAG=${env.TAG}"]) {
                         sh 'docker-compose down'
                     }
@@ -78,7 +79,7 @@ pipeline {
         stage('Build Docker Compose') {
             steps {
                 script {
-                    echo 'docker-compose build'
+                    echo 'Building new Containers with Docker Compose'
                     withEnv(["TAG=${env.TAG}"]) {
                         sh 'docker-compose build'
                     }
@@ -92,7 +93,7 @@ pipeline {
         stage('Run Docker Compose') {
             steps {
                 script {
-                    echo 'docker-compose up -d'
+                    echo 'Running Docker Compose'
                     withEnv(["TAG=${env.TAG}"]) {
                         sh 'echo TAG: ${TAG}' // Use echo para imprimir a variável TAG
                         sh 'docker-compose up -d'
@@ -106,7 +107,7 @@ pipeline {
         stage('Finish') {
             steps {
                 script {
-                    echo 'Starting Jenkins Pipeline'
+                    echo 'Finishing Jenkins Pipeline'
                 }
             }            
         }
