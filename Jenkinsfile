@@ -105,6 +105,16 @@ pipeline {
                 }
             }
         }
+        stage('Prune') {
+            steps{
+                script{
+                    echo 'Clean unused assets on docker'
+                }
+                script{
+                    sh 'docker system prune -f'
+                }
+            }
+        }
         stage('Finish') {
             steps {
                 script {
