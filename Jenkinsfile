@@ -95,6 +95,7 @@ pipeline {
                 script {
                     echo 'docker-compose up -d'
                     withEnv(["TAG=${env.TAG}"]) {
+                        sh 'echo TAG: ${TAG}' // Use echo para imprimir a variável TAG
                         sh 'docker-compose up -d'
                     }
                 }
