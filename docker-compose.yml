@@ -14,7 +14,11 @@ services:
   flask_crud_app:
     container_name: flask_crud_app
     image: flask_crud_app:${TAG}
-    build: .
+    build: 
+      context: .
+      args:
+        - TAG=${TAG}
+
     ports:
       - "4000:4000"
     environment:
