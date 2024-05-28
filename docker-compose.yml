@@ -2,6 +2,7 @@ version: 'latest'
 services:
   flask_crud_db:
     container_name: flask_crud_db
+    image: flask_crud_db:${TAG}
     build:
       context: .
       dockerfile: Dockerfile_db  # Especifique o Dockerfile específico para flask_crud_db
