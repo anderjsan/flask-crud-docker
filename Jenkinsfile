@@ -67,7 +67,7 @@ pipeline {
                     }
                 }
                 script {
-                    sleep 10 // Espera um tempo para os contêineres serem Parados completamente
+                    sleep 3
                 }
                 script {
                     echo 'Stopping Current Containers'
@@ -84,7 +84,7 @@ pipeline {
                     }
                 }
                 script {
-                    sleep 10 // Espera um tempo para os contêineres serem iniciados completamente
+                    sleep 3
                 }
             }
         }
@@ -99,7 +99,7 @@ pipeline {
                     }
                 }
                 script {
-                    sleep 10 // Espera um tempo para os contêineres serem iniciados completamente
+                    sleep 3
                 }
             }
         }
