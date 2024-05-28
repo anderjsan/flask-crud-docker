@@ -53,9 +53,8 @@ pipeline {
                     sh 'export PROJECT=$JOB_NAME'
                     sh 'curl -X POST http://version-control:4005/$JOB_NAME/tag'
                     def tag = sh(script: 'cat /var/jenkins_home/.version/$JOB_NAME/.version', returnStdout: true).trim()
-                    def proj = sh 'echo $JOB_NAME'
-                    env.PROJECT = proj
                     env.TAG = tag // Defina o valor da variável TAG globalmente
+                    env.PROJECT = env.JOB_NAME
                     echo "Project: ${env.PROJECT}; Version: ${env.TAG}"
                 }
             }
