@@ -95,6 +95,7 @@ pipeline {
                 script {
                     echo 'docker-compose up -d'
                     withEnv(["TAG=${env.TAG}"]) {
+                        sh 'TAG: ${TAG}'
                         sh 'docker-compose up -d'
                     }
                 }
