@@ -41,9 +41,6 @@ pipeline {
                         error 'No Docker Containers found. Please check DinD'
                     }
                 }
-                script {
-                    sleep 3
-                }
             }
         }
         stage('Execute New Version Tag') {
@@ -69,9 +66,6 @@ pipeline {
                     }
                 }
                 script {
-                    sleep 3
-                }
-                script {
                     echo 'Stopping Current Containers'
                 }
             }
@@ -85,9 +79,6 @@ pipeline {
                         sh 'docker-compose build'
                     }
                 }
-                script {
-                    sleep 3
-                }
             }
         }
 
@@ -99,9 +90,6 @@ pipeline {
                         sh 'echo TAG: ${TAG}' // Use echo para imprimir a variável TAG
                         sh 'docker-compose up -d'
                     }
-                }
-                script {
-                    sleep 3
                 }
             }
         }
