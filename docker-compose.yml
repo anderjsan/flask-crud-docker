@@ -1,0 +1,32 @@
+version: 'latest'
+services:
+  flask_crud_db:
+    container_name: flask_crud_db
+    image: flask_crud_db:${TAG}
+    build:
+      context: .
+      dockerfile: Dockerfile_db  # Especifique o Dockerfile específico para flask_crud_db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./postgre_volume:/var/lib/postgresql/data
+  flask_crud_app:
+    container_name: flask_crud_app
+    image: flask_crud_app:${TAG}
+    build: 
+      context: .
+      args:
+        - TAG=${TAG}
+
+    ports:
+      - "4000:4000"
+    environment:
+      - DB_URL=postgresql://postgres:postgres@flask_crud_db:5432/postgres
+    depends_on:
+      - flask_crud_db
+volumes:
+  pgdata: {}

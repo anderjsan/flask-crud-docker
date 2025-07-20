@@ -1,0 +1,35 @@
+Teste de Criação de Usuário (POST /users)
+Cenário: Criar um novo usuário com dados válidos.
+Esperado: Status 201 e o usuário recém-criado retornado no corpo da resposta.
+
+Teste de Atualização de Usuário por ID (PUT /users/<id>)
+Cenário: Atualizar os detalhes de um usuário existente.
+Esperado: Status 200 e os detalhes atualizados do usuário no corpo da resposta.
+
+Teste de Atualização de Usuários (PUT /users)
+Cenário: Atualizar os detalhes de todos os usuários existente contidos no corpo do envio.
+Esperado: Status 200 e os detalhes atualizados do usuário no corpo da resposta.
+
+Teste de Remoção de Usuário por ID (DELETE /users/<id>)
+Cenário: Excluir um usuário existente por ID.
+Esperado: Status 200 e os detalhes do usuário removido no corpo da resposta.
+
+Teste de Remoção de Todos os Usuários (DELETE /users)
+Cenário: Excluir todos os usuários cadastrados.
+Esperado: Status 200 e uma lista vazia de usuários no corpo da resposta.
+
+Teste de Recuperação de Todos os Usuários (GET /users)
+Cenário: Verificar se é possível obter todos os usuários cadastrados.
+Esperado: Status 200 e uma lista de usuários no corpo da resposta.
+
+Teste de Recuperação de Usuário por ID (GET /users/<id>)
+Cenário: Obter um usuário existente por ID.
+Esperado: Status 200 e os detalhes do usuário correspondente no corpo da resposta.
+
+Teste de Recuperação de Usuários Administradores (GET /users/admin)
+Cenário: Obter todos os usuários marcados como administradores.
+Esperado: Status 200 e uma lista de usuários administradores no corpo da resposta.
+
+Teste de Recuperação de Usuários por Nome (GET /users/name/<name>)
+Cenário: Buscar usuários por um nome específico.
+Esperado: Status 200 e uma lista de usuários correspondentes ao nome fornecido no corpo da resposta.

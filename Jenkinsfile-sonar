@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    environment {
+        SCANNER_HOME = tool 'SonarQube'
+    }
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+        stage('SonarQube Analysis') {
+            steps {
+                withSonarQubeEnv('My SonarQube Server') {
+                    sh "${SCANNER_HOME}/bin/sonar-scanner \
+                        -Dsonar.projectKey=my_project_key \
+                        -Dsonar.sources=src \
+                        -Dsonar.host.url=http://sonarqube-main:9000 \
+                        -Dsonar.login=squ_de16b7e7b3e470122fc276c3ad3790800fbc61a2"
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+    }
+}

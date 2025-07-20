@@ -1,0 +1,15 @@
+.dockerignore
+.version
+.gitignore
+Dockerfile
+docker-compose.yml
+Jenkinsfile
+__pycache__
+.vscode
+crude_app/
+postgre_volume/
+codigo do cara.txt
+test_app.py
+test_cases.txt
+flask_crud_app.log
+usuarios.txt

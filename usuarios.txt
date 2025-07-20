@@ -1,0 +1,12 @@
+[
+{"name": "John Doe", "email": "john@example.com", "password": "pass123", "phone": "1234567890", "address": "123 Main St", "is_admin": true},
+{"name": "Alice Smith", "email": "alice@example.com", "password": "alicepass", "phone": "9876543210", "address": "456 Elm St", "is_admin": false},
+{"name": "Bob Johnson", "email": "bob@example.com", "password": "bobpass", "phone": "5556667777", "address": "789 Oak St", "is_admin": true},
+{"name": "Emma Brown", "email": "emma@example.com", "password": "password123", "phone": "1112223333", "address": "101 Pine St", "is_admin": false},
+{"name": "Michael Davis", "email": "michael@example.com", "password": "michaelpass", "phone": "9998887777", "address": "222 Cedar St", "is_admin": false},
+{"name": "Sophia Wilson", "email": "sophia@example.com", "password": "sophiapass", "phone": "3334445555", "address": "333 Maple St", "is_admin": false},
+{"name": "William Martinez", "email": "william@example.com", "password": "williampass", "phone": "7776665555", "address": "444 Walnut St", "is_admin": false},
+{"name": "Olivia Garcia", "email": "olivia@example.com", "password": "oliviapass", "phone": "2223334444", "address": "555 Birch St", "is_admin": false},
+{"name": "James Rodriguez", "email": "james@example.com", "password": "jamespass", "phone": "8889990000", "address": "666 Spruce St", "is_admin": true},
+{"name": "Ava Nguyen", "email": "ava@example.com", "password": "avapass", "phone": "4445556666", "address": "777 Oak St", "is_admin": false}
+]
